@@ -1,26 +1,25 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { NavbarModule} from './shared/navbar/navbar.module';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdsAnalyticsComponent } from './pages/ads-analytics/ads-analytics.component';
-import { MarketStatusComponent } from './pages/market-status/market-status.component';
-import { ChartsModule } from 'ng2-charts';
-import { HeaderComponent } from './ui/header/header.component';
-import { CommonComponentsModule } from './common-components/common-componets.module';
+import { AppRoutes } from './app.routing';
+
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdsAnalyticsComponent,
-    MarketStatusComponent,
-    HeaderComponent
+    AdminLayoutComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ChartsModule,
-    CommonComponentsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(AppRoutes,{
+      useHash: true
+    }),
+    NavbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
